@@ -34,15 +34,36 @@ object Functions extends App {
   println(anOuterFunction(32, 21))
 
   // Assignments
+  // a greeting function
+  def aGreetingFunction(name: String, age: Int): String = "Hi, my name is " + name + " and I am " + age + " years old."
+  println(aGreetingFunction("Mohammad", 24))
+
+  // calculate factorial of a number
   def factorial(num: Int): Int = {
     if (num == 1) 1 else num * factorial(num - 1)
   }
   println(factorial(5))
 
+  // fibonacci
   def fibonacci(num: Int): Int = {
     if (num == 1) 1 else if (num == 2) 1 else if (num == 3) 2 else fibonacci(num - 1) + fibonacci(num -2)
 
   }
   println(fibonacci(4))
+
+  // prime number
+  def isPrime(num: Int): Boolean = {
+    if (num == 1) false else {
+      def innerIsPrime(aNum: Int, aDivider: Int): Boolean = {
+        if (aDivider == 1) true else if (aNum % aDivider == 0) false else innerIsPrime(aNum, aDivider - 1)
+      }
+      innerIsPrime(num, num - 1)
+    }
+  }
+
+  println(isPrime(3))
+
+
+
 
 }
