@@ -33,7 +33,7 @@ object Functions extends App {
 
   println(anOuterFunction(32, 21))
 
-
+  // Assignments
   def factorial(num: Int): Int = {
     if (num == 1) 1 else num * factorial(num - 1)
   }
