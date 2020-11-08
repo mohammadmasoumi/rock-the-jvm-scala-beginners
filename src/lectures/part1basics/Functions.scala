@@ -1,16 +1,17 @@
 package lectures.part1basics
 
-object Functions extends App {
+import scala.annotation.tailrec
 
+object Functions extends App {
 
   // a function
   def aFunction(a: String, b: Int): String = {
-    a + " " + b
+    a + " " + b // String concatenation
   }
 
   println(aFunction("Hello", 23))
 
-  // Paramerterless function
+  // aParameterless function
   def aParameterlessFunction(): Int = 42
 
   println(aParameterlessFunction())
@@ -24,46 +25,66 @@ object Functions extends App {
 
   println(aRepeatedFunction("Hello", 3))
 
+  // Side effects
+  def aFunctionWithSideEffects(aString: String): Unit = println(aString)
+
+  aFunctionWithSideEffects("Side Effects")
+
+  // Auxiliary functions
   def anOuterFunction(firstInt: Int, secondInt: Int): Int = {
     def anInnerFunction(innerFirstInt: Int): Int = {
       42 * innerFirstInt
     }
+
     anInnerFunction(secondInt + firstInt)
   }
 
   println(anOuterFunction(32, 21))
 
-  // Assignments
+  /*
+    Assignments
+   */
+
   // a greeting function
-  def aGreetingFunction(name: String, age: Int): String = "Hi, my name is " + name + " and I am " + age + " years old."
+  def aGreetingFunction(name: String, age: Int): String =
+    "Hi, my name is " + name + " and I am " + age + " years old."
+
   println(aGreetingFunction("Mohammad", 24))
 
-  // calculate factorial of a number
-  def factorial(num: Int): Int = {
-    if (num == 1) 1 else num * factorial(num - 1)
+  // Calculate factorial
+  def factorial(aNumber: Int): Int = {
+    if (aNumber <= 1) 1
+    else aNumber * factorial(aNumber - 1)
   }
+
   println(factorial(5))
 
-  // fibonacci
-  def fibonacci(num: Int): Int = {
-    if (num == 1) 1 else if (num == 2) 1 else if (num == 3) 2 else fibonacci(num - 1) + fibonacci(num -2)
-
+  // Calculate fibonacci
+  def fibonacci(aNumber: Int): Int = {
+    if (aNumber <= 2) 1
+    else fibonacci(aNumber - 1) + fibonacci(aNumber - 2)
   }
+
   println(fibonacci(4))
 
-  // prime number
-  def isPrime(num: Int): Boolean = {
-    if (num == 1) false else {
-      def innerIsPrime(aNum: Int, aDivider: Int): Boolean = {
-        if (aDivider == 1) true else if (aNum % aDivider == 0) false else innerIsPrime(aNum, aDivider - 1)
-      }
-      innerIsPrime(num, num - 1)
+  // Is prime
+  def isPrime(aNumber: Int): Boolean = {
+    def innerFunc(t: Int): Boolean = {
+      aNumber % t == 0 && innerFunc(t - 1)
     }
+    innerFunc(aNumber / 2)
   }
-
   println(isPrime(3))
 
+  // Is prime with tail recursion
+  def isPrimeTailRecursion(aNumber: Int): Boolean = {
+    @tailrec
+    def cumulativeRecursion(t: Int, isPrime: Boolean = true): Boolean =
+      if (t == 1) isPrime
+      else cumulativeRecursion(t -1, aNumber % t == 0)
 
-
+    cumulativeRecursion(aNumber / 2)
+  }
+  println(isPrimeTailRecursion(3))
 
 }
