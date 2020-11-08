@@ -23,8 +23,16 @@ object Expressions extends App {
   aVariable += 2
   println(aVariable)
 
-
   // Instruction(DO) vs Expression(COMPUTE A VALUE)
+  // The Difference between Imperative and Declarative programming language
+
+  // Imperative programming focuses on describing how a program operates.
+  // Bunch of commands to change the state of an application
+
+  // Declarative programming which focuses on what the program should accomplish without specifying
+  // how the program should achieve the result.
+
+  // SIDE EFFECTS: println(), whiles, reassigning, logging, ...
 
   // IF expression
   val aCondition = true
@@ -41,30 +49,26 @@ object Expressions extends App {
   }
 
   // EVERYTHING IN SCALA IS EXPRESSION
-
   val aWeirdValue = (aVariable == 3) // Unit == void
   println(aWeirdValue)
 
-  // Imperative programming focuses on describing how a program operates.
-  // Bunch of commands to change the state of an application
-  // side effects: println(), whiles, reassigning
-
-  // Declarative programming which focuses on what the program should accomplish without specifying
-  // how the program should achieve the result.
-
-  // code blocks
-  // THIS GUY IS AN EXPRESSION
-  // THE VALUE OF THIS GUY IS THE VALUE OF LAST EXPRESSION
-  // THE TYPE OF THIS GUY IS THE TYPE OF LAST EXPRESSION
-  // CODE BLOCKS SCOPE
+  // CODE BLOCKS
+  // This guy is an EXPRESSION
+  // The value of this guy is the value of last EXPRESSION
+  // The type of this guy is the type of last EXPRESSION
+  // The code block scope -> VALUES AND VARIABLES ARE ACCESSIBLE IN THE SCOPE AREA
   val aCodeBlock = {
     val y = 2
     val z = 2
     if (z > 2) "Hello I'm Z" else "Bye"
   }
 
-  // z isn't declared in this scope
+  // z isn't declared in this scope -> BLOCK SCOPE
   println(aCodeBlock)
+
+  /*
+    Assignments
+   */
 
   // The difference between println("String") and "String"
   println("String")
