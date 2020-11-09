@@ -53,5 +53,34 @@ object Recursion extends App {
     3. Fibonacci function, tail recursive.
    */
 
+  @tailrec
+  def concatenateString(aString: String, n: Int): String =
+    if (n == 1) aString
+    else concatenateString(aString + aString, n - 1)
+
+  println(concatenateString("Mohammad", 10))
+
+  def isPrime(aNumber: Int): Boolean = {
+    @tailrec
+    def innerIsPrime(n: Int, result: Boolean = true): Boolean =
+      if (n <= 1) result
+      else innerIsPrime(n - 1, result && (aNumber % (n) != 0))
+
+    innerIsPrime(aNumber / 2)
+  }
+
+  println(isPrime(32))
+
+  def fibonacci(aNumber: Int): Int = {
+    @tailrec
+    def innerFibonacci(currentNumber: Int, lastAccumulative: Int, secondLastAccumulative: Int): Int =
+      if (currentNumber > aNumber) lastAccumulative
+      else innerFibonacci(currentNumber + 1, lastAccumulative + secondLastAccumulative, lastAccumulative)
+
+    if (aNumber <= 2) 1
+    else innerFibonacci(3, 1, 1)
+  }
+
+  println(fibonacci(7))
 
 }
