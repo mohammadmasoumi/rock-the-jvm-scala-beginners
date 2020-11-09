@@ -70,21 +70,25 @@ object Functions extends App {
   // Is prime
   def isPrime(aNumber: Int): Boolean = {
     def innerFunc(t: Int): Boolean = {
-      aNumber % t == 0 && innerFunc(t - 1)
+      if (t <= 1) true
+      else aNumber % t != 0 && innerFunc(t - 1)
     }
+
     innerFunc(aNumber / 2)
   }
+
   println(isPrime(3))
 
   // Is prime with tail recursion
   def isPrimeTailRecursion(aNumber: Int): Boolean = {
     @tailrec
     def cumulativeRecursion(t: Int, isPrime: Boolean = true): Boolean =
-      if (t == 1) isPrime
-      else cumulativeRecursion(t -1, aNumber % t == 0)
+      if (t <= 1) isPrime
+      else cumulativeRecursion(t - 1, aNumber % t != 0)
 
     cumulativeRecursion(aNumber / 2)
   }
-  println(isPrimeTailRecursion(3))
+
+  println(isPrimeTailRecursion(4))
 
 }
