@@ -21,6 +21,7 @@ object DefaultArgs extends App {
 
   // Confuse compiler
   // savePicture(800, 800)
+  // we can't omit leading arguments
 
   /*
     1. pass in every leading arguments
