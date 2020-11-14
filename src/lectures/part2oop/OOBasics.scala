@@ -41,7 +41,7 @@ object OOBasics extends App {
   Novel and a writer
 
   Writer: first name, surname, year
-      method fullname
+      method full name
 
   Novel: name, year of release, author
     - authorAge
