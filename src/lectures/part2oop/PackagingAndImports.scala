@@ -1,4 +1,4 @@
-package lectures.part2oop
+package lectures.part2oop // mirror the file structure
 
 //import playground.{Cinderella, PrinceCharming}
 //import playground._ // (import *) use if you really need it
@@ -7,7 +7,7 @@ import java.util.Date
 
 import playground.{PrinceCharming, Cinderella => Princess}
 //import java.sql.Date
-import java.sql.{Date => sqlDate}
+import java.sql.{Date => sqlDate} // name aliasing
 
 object PackagingAndImports extends App {
 
