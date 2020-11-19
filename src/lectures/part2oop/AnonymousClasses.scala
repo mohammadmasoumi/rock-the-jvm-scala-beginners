@@ -33,5 +33,11 @@ object AnonymousClasses extends App {
     override def sayHi: Unit = println(s"Hi my name is Jim, how can I be of service?")
   }
 
+  /*
+    Rules:
+      1. pass in required constructor arguments if needed
+      2. implement all abstract fields/methods
+   */
+
 
 }
