@@ -43,6 +43,11 @@ case object Empty extends MyList[Nothing] {
   def printElements: String = " "
 
   // higher-order functions (HOFs)
+  /*
+    HOF
+      - receive functions
+      - return other functions as result
+   */
   override def map[B](transformer: Nothing => B): MyList[B] = Empty
 
   override def flatMap[B](transformer: Nothing => MyList[B]): MyList[B] = Empty
