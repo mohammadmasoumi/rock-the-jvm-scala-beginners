@@ -42,12 +42,14 @@ case object Empty extends MyList[Nothing] {
 
   def printElements: String = " "
 
+  // higher-order functions (HOFs)
   override def map[B](transformer: Nothing => B): MyList[B] = Empty
 
   override def flatMap[B](transformer: Nothing => MyList[B]): MyList[B] = Empty
 
   override def filter(predicate: Nothing => Boolean): MyList[Nothing] = Empty
 
+  // concatenation
   override def ++[B >: Nothing](list: MyList[B]): MyList[B] = list
 }
 
