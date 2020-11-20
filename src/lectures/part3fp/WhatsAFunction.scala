@@ -53,10 +53,15 @@ object WhatsAFunction extends App {
         }
     }
 
+  // lambda
+  val specialFunction: Int => Int => Int =
+    a => b => a + b
+
   val myAdder3 = myAdder(3)
   println(myAdder3(4)) // equivalent === println(myAdder(3)(4))
   println(myAdder(3)(4))
 
+  println(specialFunction(2)(3))
 
 }
 
