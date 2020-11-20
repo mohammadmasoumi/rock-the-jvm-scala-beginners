@@ -131,8 +131,10 @@ object ListTest extends App {
   println(listOfIntegers.++(anotherListOfIntegers))
 
   println(listOfIntegers.map(elem => elem * 2))
+  println(listOfIntegers.map(_ * 2)) // syntactic sugar
 
   println(listOfIntegers.filter(elem => elem % 2 == 0))
+  println(listOfIntegers.filter(_ % 2 == 0)) // syntactic sugar
 
   println(listOfIntegers.flatMap(elem => new Cons(elem, new Cons(elem + 1, Empty))))
 
