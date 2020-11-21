@@ -27,6 +27,13 @@ abstract class MyList[+A] {
   def filter(predicate: A => Boolean): MyList[A]
 
   def ++[B >: A](list: MyList[B]): MyList[B]
+
+  // HOFs
+  def foreach(f: A => Unit): Unit
+
+  def sort(compare: (A, A) => Int): MyList[A]
+
+  def zipWith[B, C](list: MyList[B], zip: (A, B) => C): MyList[C]
 }
 
 // ??? this guy return Nothing
@@ -56,6 +63,14 @@ case object Empty extends MyList[Nothing] {
 
   // concatenation
   override def ++[B >: Nothing](list: MyList[B]): MyList[B] = list
+
+  override def foreach(f: Nothing => Unit): Unit = () // unit value = ()
+
+  override def sort(compare: (Nothing, Nothing) => Int): MyList[Nothing] = Empty
+
+  override def zipWith[B, C](list: MyList[B], zip: (Nothing, B) => C): MyList[C] =
+    if (!list.isEmpty) throw new RuntimeException("Lists do not have the same length!")
+    else Empty
 }
 
 
@@ -112,6 +127,25 @@ case class Cons[+A](h: A, t: MyList[A]) extends MyList[A] {
    */
   override def ++[B >: A](list: MyList[B]): MyList[B] = new Cons[B](h, t ++ list)
 
+  override def foreach(f: A => Unit): Unit = {
+    f(h)
+    t.foreach(f)
+  }
+
+  override def sort(compare: (A, A) => Int): MyList[A] = {
+    def insert(x: A, sortedList: MyList[A]): MyList[A] = {
+      if (sortedList.isEmpty) new Cons(x, Empty)
+      else if (compare(x, sortedList.head) < 0) new Cons(x, sortedList)
+      else new Cons(sortedList.head, insert(x, sortedList.tail))
+    }
+
+    val sortedTail = t.sort(compare)
+    insert(h, sortedTail)
+  }
+
+  override def zipWith[B, C](list: MyList[B], zip: (A, B) => C): MyList[C] =
+    if (list.isEmpty) throw new RuntimeException("Lists do not have the same length!")
+    else new Cons(zip(h, list.head), t.zipWith(list.tail, zip))
 }
 
 object ListTest extends App {
@@ -138,6 +172,12 @@ object ListTest extends App {
 
   println(listOfIntegers.flatMap(elem => new Cons(elem, new Cons(elem + 1, Empty))))
 
+  // HOFs
+  listOfIntegers.foreach(println)
+
+  println(listOfIntegers.sort((x, y) => y - x))
+
+  println(cloneListOfIntegers.zipWith(listOfStrings, (x: Int, y: String) => s"$x-$y"))
 
   //  val list = new Cons(1, new Cons(2, new Cons(3, new Cons(4, Empty))))
   //  println(list.tail.tail.head)
