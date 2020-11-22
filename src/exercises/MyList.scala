@@ -146,6 +146,7 @@ case class Cons[+A](h: A, t: MyList[A]) extends MyList[A] {
   override def zipWith[B, C](list: MyList[B], zip: (A, B) => C): MyList[C] =
     if (list.isEmpty) throw new RuntimeException("Lists do not have the same length!")
     else new Cons(zip(h, list.head), t.zipWith(list.tail, zip))
+
 }
 
 object ListTest extends App {
@@ -178,6 +179,7 @@ object ListTest extends App {
   println(listOfIntegers.sort((x, y) => y - x))
 
   println(cloneListOfIntegers.zipWith(listOfStrings, (x: Int, y: String) => s"$x-$y"))
+  println(cloneListOfIntegers.zipWith(listOfStrings, _ + " " + _))
 
   //  val list = new Cons(1, new Cons(2, new Cons(3, new Cons(4, Empty))))
   //  println(list.tail.tail.head)
