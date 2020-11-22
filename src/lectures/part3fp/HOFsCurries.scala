@@ -75,6 +75,8 @@ object HOFsCurries extends App {
        andThen(f, g) => x => g(f(x))
    */
 
+  def toCurry()
+
 
 
 }
