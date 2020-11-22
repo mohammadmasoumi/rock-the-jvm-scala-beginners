@@ -34,6 +34,8 @@ abstract class MyList[+A] {
   def sort(compare: (A, A) => Int): MyList[A]
 
   def zipWith[B, C](list: MyList[B], zip: (A, B) => C): MyList[C]
+
+  def fold[B](start: B)(operator: (B, A) => B): B
 }
 
 // ??? this guy return Nothing
@@ -71,6 +73,8 @@ case object Empty extends MyList[Nothing] {
   override def zipWith[B, C](list: MyList[B], zip: (Nothing, B) => C): MyList[C] =
     if (!list.isEmpty) throw new RuntimeException("Lists do not have the same length!")
     else Empty
+
+  override def fold[B](start: B)(operator: (B, Nothing) => B): B = start
 }
 
 
@@ -147,6 +151,16 @@ case class Cons[+A](h: A, t: MyList[A]) extends MyList[A] {
     if (list.isEmpty) throw new RuntimeException("Lists do not have the same length!")
     else new Cons(zip(h, list.head), t.zipWith(list.tail, zip))
 
+  /*
+    fold or reduce
+    [1, 2, 3].fold(0)(+)
+      = [2, 3].fold(1)(+)
+      = [3].fold(3)(+)
+      = [].fold(6)(+)
+      = 6
+   */
+  override def fold[B](start: B)(operator: (B, A) => B): B =
+    t.fold(operator(start, h))(operator)
 }
 
 object ListTest extends App {
@@ -179,8 +193,9 @@ object ListTest extends App {
   println(listOfIntegers.sort((x, y) => y - x))
 
   println(cloneListOfIntegers.zipWith(listOfStrings, (x: Int, y: String) => s"$x-$y"))
-  println(cloneListOfIntegers.zipWith(listOfStrings, _ + " " + _))
+  println(cloneListOfIntegers.zipWith[String, String](listOfStrings, _ + " " + _))
 
+  println(cloneListOfIntegers.fold(0)(_ + _))
   //  val list = new Cons(1, new Cons(2, new Cons(3, new Cons(4, Empty))))
   //  println(list.tail.tail.head)
   //  println(list.add(5).head)
