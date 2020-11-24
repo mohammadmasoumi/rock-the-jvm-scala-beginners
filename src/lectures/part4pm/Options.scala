@@ -1,4 +1,4 @@
-package lectures.part4patterns
+package lectures.part4pm
 
 import scala.util.Random
 
