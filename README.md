@@ -6,10 +6,10 @@ therefore I've created this project to share what I've learned.
 
 ### Structure
 
- - [basics][4]
- - [object oriented programming][5]
- - [functional programming][6]
- - [pattern matching][7]
+ - [**basics**][4]
+ - [**object oriented programming**][5]
+ - [**functional programming**][6]
+ - [**pattern matching**][7]
 
 ### Environment
  - JDK 1.8.0
