@@ -17,7 +17,7 @@ therefore I've created this project to share what I've learned.
 
 ### Courses
 
- - [rock-the-jvm-scala-for-beginners][3]
+ - [**rock-the-jvm-scala-for-beginners**][3]
 
 
 [1]: https://www.scala-lang.org/
