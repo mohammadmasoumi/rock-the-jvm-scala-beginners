@@ -104,4 +104,5 @@ object HOFsCurries extends App {
 
   println(composed(4))
   println(sorted(4))
+
 }
