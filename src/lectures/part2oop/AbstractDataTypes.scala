@@ -12,7 +12,6 @@ object AbstractDataTypes extends App {
 
   // Class 'Animal' is abstract; cannot be instantiated
   //  val animal: Animal = new Animal
-
   class Dog extends Animal {
     //    override val creatureType: String = "wild"
     val creatureType: String = "K9" // we can omit override keyword
