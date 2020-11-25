@@ -103,6 +103,7 @@ object HOFsCurries extends App {
   val sorted = andThen(add2, times3) // (4 + 2) * 3
 
   println(composed(4))
+
   println(sorted(4))
 
 }
