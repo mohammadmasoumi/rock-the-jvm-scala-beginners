@@ -65,7 +65,4 @@ object PatternsEveryWhere extends App {
     case _ => "default"
   })
   mappedList2.foreach(println)
-
-
-
 }
