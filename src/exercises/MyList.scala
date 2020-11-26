@@ -195,6 +195,8 @@ object ListTest extends App {
   println(cloneListOfIntegers.zipWith(listOfStrings, (x: Int, y: String) => s"$x-$y"))
   println(cloneListOfIntegers.zipWith[String, String](listOfStrings, _ + " " + _))
 
+  // they are expressions as well too!
+  // for-comprehension = map, flatMap, filter should be implemented!
   val myListForComprehension = for {
     aNumber1 <- listOfIntegers
     aNumber2 <- anotherListOfIntegers
@@ -204,6 +206,7 @@ object ListTest extends App {
   println(myListForComprehension)
 
   println(cloneListOfIntegers.fold(0)(_ + _))
+
   //  val list = new Cons(1, new Cons(2, new Cons(3, new Cons(4, Empty))))
   //  println(list.tail.tail.head)
   //  println(list.add(5).head)
