@@ -113,6 +113,4 @@ object PatternMatching extends App {
   println(show(Sum(Sum(Number(2), Number(3)), Number(4))))
   println(show(Prod(Sum(Number(2), Number(1)), Number(3))))
   println(show(Prod(Sum(Number(2), Number(1)), Sum(Number(3), Number(4)))))
-
-
 }

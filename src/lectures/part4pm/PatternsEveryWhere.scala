@@ -40,5 +40,4 @@ object PatternsEveryWhere extends App {
 
   println(filterTuples)
 
-
 }
