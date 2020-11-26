@@ -42,6 +42,7 @@ object MapFlatMapFilterFor extends App {
   newList.foreach(println)
 
   // for-comprehension
+  // for-comprehension is rewritten to the chain of map, flatMap and filter by the COMPILER
   val forComprehension = for {
     a <- intList
     b <- charList
