@@ -195,6 +195,14 @@ object ListTest extends App {
   println(cloneListOfIntegers.zipWith(listOfStrings, (x: Int, y: String) => s"$x-$y"))
   println(cloneListOfIntegers.zipWith[String, String](listOfStrings, _ + " " + _))
 
+  val myListForComprehension = for {
+    aNumber1 <- listOfIntegers
+    aNumber2 <- anotherListOfIntegers
+    aNumber3 <- cloneListOfIntegers
+    aString <- listOfStrings
+  } yield s"$aNumber1-$aNumber2-$aNumber3-$aString"
+  println(myListForComprehension)
+
   println(cloneListOfIntegers.fold(0)(_ + _))
   //  val list = new Cons(1, new Cons(2, new Cons(3, new Cons(4, Empty))))
   //  println(list.tail.tail.head)
