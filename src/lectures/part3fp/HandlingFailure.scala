@@ -119,7 +119,6 @@ object HandlingFailure extends App {
   }
    */
 
-
   // My answer
   def connect(host: String, port: String): Try[Try[Unit]] = {
     Try(HttpService.getConnection(host, port)).map(
