@@ -19,4 +19,19 @@ object TuplesAndMaps extends App {
   val moreSyntacticSugarATuple = 2 -> "Hello, Scala"
   println(moreSyntacticSugarATuple)
 
+  // functions on Tuples
+  println(aTuple._1) // indexed access
+  println(aTuple.copy(_2 = " Updated Hello Scala"))
+  println(aTuple.swap) // ("Hello, Scala", 2)
+
+  /*
+    Maps key -> value
+   */
+  val aMap: Map[String, Int] = Map() // an empty map
+  val aPhonebook: Map[String, Int] = Map(("Mohammad", 1234), ("Daniel", 456))
+  val anotherPhonebook: Map[String, Int] = Map("Mohammad" -> 1234, "Daniel" -> 456)
+
+  println(aMap)
+  println(aPhonebook)
+  println(anotherPhonebook)
 }
