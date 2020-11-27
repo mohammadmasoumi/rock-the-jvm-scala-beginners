@@ -85,4 +85,14 @@ object Sequences extends App {
   val arrayToSeq: Seq[Int] = numbers // an implicit conversion
   println(arrayToSeq)
 
+  /*
+    Vectors
+      - effectively constant indexed read and write: O(log32(n))
+      - fast element addition: append/prepend
+      - implemented as a fixed-branched trie (branch factor 32)
+      - good performance for large sizes
+   */
+
+
+
 }
