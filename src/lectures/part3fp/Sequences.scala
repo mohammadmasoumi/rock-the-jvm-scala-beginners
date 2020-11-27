@@ -97,8 +97,11 @@ object Sequences extends App {
   val vectorNumbers = noElements :+ 1 :+ 2 :+ 3
   val modified = numbers updated(0, 10)
 
-  print(vectorNumbers)
-  println(modified)
+  println(vectorNumbers)
+  println(modified.mkString("|-|"))
 
+  val vector: Vector[Int] = Vector(1, 2, 3)
+
+  // vectors vs lists performance
 
 }
