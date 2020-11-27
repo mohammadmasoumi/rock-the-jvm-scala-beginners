@@ -70,6 +70,11 @@ object Sequences extends App {
 
    */
 
+  val numbers = Array(1, 2, 3, 4)
+  val threeElements = Array.ofDim[Int](3)
+  val threeNonPrimitiveElements = Array.ofDim(3)
 
+  threeElements.foreach(println) // filled with zeros
+  threeNonPrimitiveElements.foreach(println) // filled with nulls
 
 }
