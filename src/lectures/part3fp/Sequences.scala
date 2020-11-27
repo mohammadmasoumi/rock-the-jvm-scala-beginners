@@ -1,5 +1,7 @@
 package lectures.part3fp
 
+import scala.util.Random
+
 object Sequences extends App {
 
 
@@ -103,5 +105,31 @@ object Sequences extends App {
   val vector: Vector[Int] = Vector(1, 2, 3)
 
   // vectors vs lists performance
+
+  val maxRuns = 1000
+  val maxCapacity = 1000000
+
+  def getWriteTime(collection: Seq[Int]): Double = {
+    val random = new Random
+    val timss = for {
+      it <- 1 to maxRuns
+    } yield {
+      val currentTime = System.nanoTime()
+      collection.updated(random.nextInt(maxCapacity), random.nextInt())
+      System.nanoTime() - currentTime
+    }
+
+    timss.sum * 1.0 / maxRuns
+  }
+
+  // keeps reference to the head
+  // updating an element in the middle takes Long
+  val numbersList = (1 to maxCapacity).toList
+  // depth of the tree is small
+  // needs to replace an entire 32 elements chunk
+  val numbersVector = (1 to maxCapacity).toVector
+
+  println(getWriteTime(numbersList))
+  println(getWriteTime(numbersVector))
 
 }
