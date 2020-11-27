@@ -48,12 +48,28 @@ object Sequences extends App {
   // prepending and appending
   val aList = List(1, 2, 3, 4)
   val prepended = 42 :: aList
-  val anotherPrepended = 42 +: aList :+ 42
+  val anotherPrepended = 42 +: aList :+ 42 // colon is always on the side of list
   val appended = aList :+ 42
 
   println(prepended)
   print(anotherPrepended)
   println(appended)
+
+  val apples5 = List.fill(5)("Hello") // curried function
+  println(apples5)
+
+  // make string
+  println(aList.mkString("-"))
+
+  /*
+   Arrays - simple java arrays
+    - can be manually constructed with predefined length
+    - can be mutated (update in place)
+    - are interoperable with java's T[] arrays
+    - indexing is fast
+
+   */
+
 
 
 }
