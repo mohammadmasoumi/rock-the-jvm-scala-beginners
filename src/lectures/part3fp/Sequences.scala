@@ -42,10 +42,18 @@ object Sequences extends App {
 
     Sealed - ahas two subtypes
       - object Nil (empty)
-      - class ::
+      - class :: (Like the Cons in MyList)
    */
 
   // prepending and appending
   val aList = List(1, 2, 3, 4)
+  val prepended = 42 :: aList
+  val anotherPrepended = 42 +: aList :+ 42
+  val appended = aList :+ 42
+
+  println(prepended)
+  print(anotherPrepended)
+  println(appended)
+
 
 }
