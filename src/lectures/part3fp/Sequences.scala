@@ -72,9 +72,17 @@ object Sequences extends App {
 
   val numbers = Array(1, 2, 3, 4)
   val threeElements = Array.ofDim[Int](3)
-  val threeNonPrimitiveElements = Array.ofDim(3)
+  val threeNonPrimitiveElements = Array.ofDim(3) // allocation space for 3 elements
 
   threeElements.foreach(println) // filled with zeros
   threeNonPrimitiveElements.foreach(println) // filled with nulls
+
+  // mutable
+  numbers(2) = 10 // quite rarely use in practice
+  println(numbers.mkString("-"))
+
+  // arrays and seq - Deep rabbit hole
+  val arrayToSeq: Seq[Int] = numbers // an implicit conversion
+  println(arrayToSeq)
 
 }
