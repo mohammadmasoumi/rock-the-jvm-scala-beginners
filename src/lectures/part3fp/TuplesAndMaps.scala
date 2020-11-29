@@ -28,10 +28,27 @@ object TuplesAndMaps extends App {
     Maps key -> value
    */
   val aMap: Map[String, Int] = Map() // an empty map
-  val aPhonebook: Map[String, Int] = Map(("Mohammad", 1234), ("Daniel", 456))
+  val aPhonebook: Map[String, Int] = Map(("Mohammad", 1234), ("Daniel", 456)).withDefaultValue(-1)
   val anotherPhonebook: Map[String, Int] = Map("Mohammad" -> 1234, "Daniel" -> 456)
 
   println(aMap)
   println(aPhonebook)
   println(anotherPhonebook)
+
+  // map ops
+  println(aPhonebook.contains("Mohammad"))
+  println(aPhonebook("Mohammad"))
+
+  // println(aPhonebook("Mary")) // throw NoSuchElementException - Not at all, I think you miss the point
+  // solution? define a default value
+  println(aPhonebook("Mary")) // default value or throwing exception
+
+  // add a pairing
+  val newPairing = "Mary" -> 235
+  val newPhonebook = aPhonebook + newPairing
+  println(newPhonebook)
+
+  // functions on Map - map, flatMap, filter
+  println(newPhonebook.map(pair => pair. _1.toLowerCase -> pair._2)) // pair
+
 }
