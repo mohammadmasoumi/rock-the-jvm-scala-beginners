@@ -133,4 +133,10 @@ object TuplesAndMaps extends App {
   // test nFriends
   println(nFriends(testNet, "Bob"))
 
+  def mostFriends(network: Map[String, Set[String]]): String =
+    network.maxBy(pair => pair._2.size)._1
+
+  // test mostFriends
+  println(mostFriends(testNet))
+
 }
