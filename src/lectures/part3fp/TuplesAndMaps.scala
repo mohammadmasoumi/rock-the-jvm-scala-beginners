@@ -61,6 +61,8 @@ object TuplesAndMaps extends App {
   /*
     Exercise
       1. what would happen If I had two original entries "Jim" -> 555 and "JIM" -> 997
+        answer: you will lose some data
+
       2. Overly simplified social network based on maps
         Person = string
           - add a person to the network
@@ -72,5 +74,15 @@ object TuplesAndMaps extends App {
           - how many people have NO FRIEND
           - if there is a social connection between two people (direct or indirect)
    */
+
+  val aNewPhonebook: Map[String, Int] = Map(
+    "MOHAMMAD" -> 1002,
+    "Mohammad" -> 1234,
+    "Daniel" -> 456
+  ).withDefaultValue(-1)
+  // keep the last one
+  println(aNewPhonebook.map(pair => pair._1.toLowerCase -> pair._2)) // pair
+
+
 
 }
