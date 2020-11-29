@@ -140,7 +140,7 @@ object TuplesAndMaps extends App {
   println(mostFriends(testNet))
 
   def nPeopleWithNoFriends(network: Map[String, Set[String]]): Int =
-    network.count(pair => network(pair._1).isEmpty)
+    network.count(_._2.isEmpty)
 
   // test nPeopleWithNoFriends
   println(nPeopleWithNoFriends(testNet))
