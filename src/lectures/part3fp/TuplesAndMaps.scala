@@ -61,6 +61,16 @@ object TuplesAndMaps extends App {
   /*
     Exercise
       1. what would happen If I had two original entries "Jim" -> 555 and "JIM" -> 997
+      2. Overly simplified social network based on maps
+        Person = string
+          - add a person to the network
+          - remove
+          - friend (mutual)
+          - unfriend
+          - number of friends of a person
+          - person with most friend
+          - how many people have NO FRIEND
+          - if there is a social connection between two people (direct or indirect)
    */
 
 }
