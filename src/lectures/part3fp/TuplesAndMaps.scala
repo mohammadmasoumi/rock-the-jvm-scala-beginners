@@ -119,4 +119,11 @@ object TuplesAndMaps extends App {
   println(unfriend(friend(network, "Bob", "Mary"), "Bob", "Mary"))
   println(remove(friend(network, "Bob", "Mary"), "Bob"))
 
+  // create a network with Jim, Bob, Mary
+  val people = add(add(add(empty, "Bob"), "Mary"), "Jim")
+  val jimBob = friend(people, "Bob", "Jim")
+  val testNet = friend(jimBob, "Bob", "Mary")
+
+  println(testNet)
+
 }
