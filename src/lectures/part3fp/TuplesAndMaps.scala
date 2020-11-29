@@ -58,4 +58,9 @@ object TuplesAndMaps extends App {
   val names = List("Mohammad", "Daniel", "Angela", "Mary", "Jim", "Bob")
   println(names.groupBy(name => name.charAt((0))))
 
+  /*
+    Exercise
+      1.
+   */
+
 }
