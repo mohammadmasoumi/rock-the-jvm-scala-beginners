@@ -91,6 +91,13 @@ object TuplesAndMaps extends App {
     val friendA = network(a)
     val friendB = network(b)
 
+    network + (a -> (friendA + b)) + (b -> (friendB + a))
+  }
+
+  def unfriend(network: Map[String, Set[String]], a: String, b: String): Map[String, Set[String]] = {
+    val friendA = network(a)
+    val friendB = network(b)
+
     network + (a -> (friendA - b)) + (b -> (friendB - a))
   }
 
