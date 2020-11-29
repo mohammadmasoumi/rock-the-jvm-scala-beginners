@@ -111,4 +111,10 @@ object TuplesAndMaps extends App {
     unfriended - person
   }
 
+  val empty: Map[String, Set[String]] = Map()
+  val network = add(add(empty, "Bob"), "Mary")
+
+  println(network)
+  println(friend(network, "Bob", "Mary"))
+
 }
