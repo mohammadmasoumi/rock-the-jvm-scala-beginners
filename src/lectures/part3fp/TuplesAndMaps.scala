@@ -83,6 +83,9 @@ object TuplesAndMaps extends App {
   // keep the last one
   println(aNewPhonebook.map(pair => pair._1.toLowerCase -> pair._2)) // pair
 
+  // Network
+  def add(network: Map[String, List[String]], person: String): Map[String, List[String]] =
+    network + (person -> List())
 
 
 }
