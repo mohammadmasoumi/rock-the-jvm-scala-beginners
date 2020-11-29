@@ -8,7 +8,7 @@ object TuplesAndMaps extends App {
 
    */
 
-  val aTuple: Tuple2[Int, String] = new Tuple2[Int, String](2, "Hello, Scala")
+  val aTuple: (Int, String) = new Tuple2[Int, String](2, "Hello, Scala")
   println(aTuple)
 
   // Syntactic sugar
