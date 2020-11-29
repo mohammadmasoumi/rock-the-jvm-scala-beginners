@@ -84,14 +84,14 @@ object TuplesAndMaps extends App {
   println(aNewPhonebook.map(pair => pair._1.toLowerCase -> pair._2)) // pair
 
   // Network
-  def add(network: Map[String, List[String]], person: String): Map[String, List[String]] =
-    network + (person -> List())
+  def add(network: Map[String, Set[String]], person: String): Map[String, Set[String]] =
+    network + (person -> Set())
 
-  def friend(network: Map[String, List[String]], a: String, b: String): Map[String, List[String]] = {
+  def friend(network: Map[String, Set[String]], a: String, b: String): Map[String, Set[String]] = {
     val friendA = network(a)
     val friendB = network(b)
 
-    network + (a -> (friendA + b)) + (b -> friendB + a)
+    network + (a -> (friendA - b)) + (b -> (friendB - a))
   }
 
 }
