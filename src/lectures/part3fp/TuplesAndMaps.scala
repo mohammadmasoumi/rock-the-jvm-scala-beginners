@@ -49,6 +49,13 @@ object TuplesAndMaps extends App {
   println(newPhonebook)
 
   // functions on Map - map, flatMap, filter
-  println(newPhonebook.map(pair => pair. _1.toLowerCase -> pair._2)) // pair
+  println(newPhonebook.map(pair => pair._1.toLowerCase -> pair._2)) // pair
+
+  // conversions
+  println(newPhonebook.toList)
+  println(List(("Daniel", 221)).toMap) // vise versa
+
+  val names = List("Mohammad", "Daniel", "Angela", "Mary", "Jim", "Bob")
+  println(names.groupBy(name => name.charAt((0))))
 
 }
