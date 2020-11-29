@@ -126,4 +126,11 @@ object TuplesAndMaps extends App {
 
   println(testNet)
 
+  def nFriends(network: Map[String, Set[String]], person: String): Int =
+    if (!network.contains(person)) 0
+    else network(person).size
+
+  // test nFriends
+  println(nFriends(testNet, "Bob"))
+
 }
