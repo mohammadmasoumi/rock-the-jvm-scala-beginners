@@ -60,7 +60,7 @@ object TuplesAndMaps extends App {
 
   /*
     Exercise
-      1.
+      1. what would happen If I had two original entries "Jim" -> 555 and "JIM" -> 997
    */
 
 }
