@@ -116,5 +116,7 @@ object TuplesAndMaps extends App {
 
   println(network)
   println(friend(network, "Bob", "Mary"))
+  println(unfriend(friend(network, "Bob", "Mary"), "Bob", "Mary"))
+  println(remove(friend(network, "Bob", "Mary"), "Bob"))
 
 }
