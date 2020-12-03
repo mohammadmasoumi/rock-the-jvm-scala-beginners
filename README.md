@@ -1,5 +1,5 @@
 
-### Introduction 
+# rock-the-jvm-scala-beginners
 
 Recently, I started learning [Scala][1] snd [functional programming][3], 
 therefore I've created this project to share what I've learned.
